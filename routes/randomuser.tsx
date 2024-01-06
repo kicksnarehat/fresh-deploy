@@ -15,7 +15,7 @@ export const handler: Handlers<User | null> = {
     }
     const json = await resp.json();
     const user = json?.results?.[0];
-    console.log({ user });
+    // console.log({ user });
     return ctx.render(user);
   },
 };

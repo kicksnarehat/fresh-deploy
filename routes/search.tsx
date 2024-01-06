@@ -1,20 +1,16 @@
-import { Handlers, PageProps } from "https://deno.land/x/fresh@1.3.0/server.ts";
+import { Handlers, PageProps } from "$fresh/server.ts";
 
 const NAMES = [
-  "Alice",
-  "Andrew",
-  "Alex",
-  "Bob",
-  "Bonnie",
-  "Barney",
-  "Barnie",
-  "Bernie",
-  "Chester",
-  "Clementine",
-  "Cathy",
-  "Kathy",
-  "Katie",
-  "Xena",
+  "John",
+  "Paul",
+  "George",
+  "Ringo",
+  "Johnny",
+  "Joey",
+  "Dee Dee",
+  "Dee Dee",
+  "Tommy",
+  "Phil",
 ];
 
 interface Data {
@@ -26,7 +22,9 @@ export const handler: Handlers<Data> = {
   GET(req, ctx) {
     const url = new URL(req.url);
     const query = url.searchParams.get("q") || "";
-    const results = NAMES.filter((n) => n.includes(query));
+    const results = NAMES.filter((n) =>
+      n.toLowerCase().includes(query.toLowerCase())
+    );
     return ctx.render({ results, query });
   },
 };
@@ -34,15 +32,14 @@ export const handler: Handlers<Data> = {
 export default function Page({ data }: PageProps<Data>) {
   const { results, query } = data;
   return (
-    <>
-      <h2>Hi</h2>
+    <div>
       <form>
-        <input type="search" name="q" value={query} />
+        <input name="q" value={query} />
         <button type="submit">Search</button>
       </form>
       <ul>
-        {results.map((n) => <li key={n}>{n}</li>)}
+        {results.map((name) => <li key={name}>{name}</li>)}
       </ul>
-    </>
+    </div>
   );
 }

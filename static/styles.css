@@ -2,7 +2,7 @@
 *,
 *::before,
 *::after {
-  box-sizing: boder-box;
+  box-sizing: border-box;
 }
 * {
   margin: 0;
@@ -121,6 +121,9 @@ html {
 .rounded {
   border-radius: 0.25rem;
 }
-.hover:bg-gray-200:hover {
+.hover\:bg-gray-200:hover {
   background-color: #e5e7eb;
+}
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
 }
