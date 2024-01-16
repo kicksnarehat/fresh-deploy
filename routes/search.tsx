@@ -8,7 +8,6 @@ const NAMES = [
   "Johnny",
   "Joey",
   "Dee Dee",
-  "Dee Dee",
   "Tommy",
   "Phil",
 ];
